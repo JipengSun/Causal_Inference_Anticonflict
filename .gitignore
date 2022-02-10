@@ -1,1 +1,4 @@
-data/
+# Ignore Data files
+data/anticonflict_study_dataframe.csv
+# Ignore Mac system files
+.DS_store
