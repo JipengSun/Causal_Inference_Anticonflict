@@ -2,19 +2,10 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 3,
    "id": "3db604c3-620a-46c0-acd4-d8083211212e",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/tylermaule/opt/miniconda3/envs/csci_project/lib/python3.9/site-packages/statsmodels/compat/pandas.py:61: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.\n",
-      "  from pandas import Int64Index as NumericIndex\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "import pandas as pd\n",
     "import numpy as np\n",
@@ -32,7 +23,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 4,
    "id": "17fefe23-506c-4ae4-be38-5fbb34dc142c",
    "metadata": {},
    "outputs": [
@@ -42,7 +33,7 @@
        "(24471, 500)"
       ]
      },
-     "execution_count": 2,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -54,10 +45,30 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 5,
    "id": "97cbe2b6-9a30-4aca-9707-4d5044348281",
    "metadata": {},
+<<<<<<< HEAD
    "outputs": [],
+=======
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['HOBGW2', 'STFRW2', 'IPHNW2', 'SMPHW2', 'PHNIW2', 'CMPW2', 'ACTSSW2',\n",
+       "       'ACTSOW2', 'ACTTW2', 'ACTMW2',\n",
+       "       ...\n",
+       "       'MYHEW2', 'MYGSW2', 'SPRTW2', 'HOBGW2', 'STFRW2', 'CN1W2', 'CN2W2',\n",
+       "       'CN3W2', 'CN4W2', 'CN5W2'],\n",
+       "      dtype='object', length=369)"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
    "source": [
     "relevant_vars = pd.read_csv(\"data/VariableInclusion250.txt\",header=None)[0].unique()\n",
     "addtl_vars = relevant_vars[-1].split(\"\\t\")\n",
@@ -69,7 +80,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 6,
    "id": "4d625516-363d-47e8-b9e6-2a730ad560bf",
    "metadata": {},
    "outputs": [
@@ -79,7 +90,7 @@
        "(24471, 348)"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -99,7 +110,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 7,
    "id": "69fd65c8-c6bd-4b88-b84e-572be2e898a1",
    "metadata": {},
    "outputs": [
@@ -109,7 +120,7 @@
        "(3671, 336)"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -126,6 +137,7 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 6,
    "id": "226cdf8b-4d7b-4f49-86f4-96e9611ce7f7",
    "metadata": {},
@@ -150,12 +162,16 @@
   {
    "cell_type": "code",
    "execution_count": 7,
+=======
+   "execution_count": 8,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
    "id": "21052583-c948-4740-a170-d3b5697e6999",
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
+<<<<<<< HEAD
        "CILW2       0.100245\n",
        "CBNPW2      0.100518\n",
        "CFLW2       0.100518\n",
@@ -171,6 +187,23 @@
       ]
      },
      "execution_count": 7,
+=======
+       "DE98       0.092320\n",
+       "DE27       0.092320\n",
+       "DE26       0.092320\n",
+       "DE2        0.092320\n",
+       "DE24       0.092320\n",
+       "             ...   \n",
+       "PNCL3W2    0.422386\n",
+       "PNCL4W2    0.422386\n",
+       "PNCL5W2    0.422386\n",
+       "PNCL6W2    0.422386\n",
+       "PNCL7W2    0.422386\n",
+       "Length: 129, dtype: float64"
+      ]
+     },
+     "execution_count": 8,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -185,7 +218,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 8,
+=======
+   "execution_count": 9,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
    "id": "2b86d08e-8b52-42e8-9b46-e6a4a8f7d592",
    "metadata": {},
    "outputs": [
@@ -237,15 +274,50 @@
        "    <tr>\n",
        "      <th>0</th>\n",
        "      <td>(0) Never</td>\n",
+<<<<<<< HEAD
        "      <td>(3) 2-3 times/week</td>\n",
        "      <td>(1) 1-2 times/month</td>\n",
        "      <td>(0) Never</td>\n",
        "      <td>(1) 1-2 times/month</td>\n",
+=======
+       "      <td>(0) Never</td>\n",
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
        "      <td>(0) Never</td>\n",
        "      <td>(1) 1-2 times/month</td>\n",
        "      <td>(1) 1-2 times/month</td>\n",
        "      <td>(0) Never</td>\n",
+<<<<<<< HEAD
        "      <td>(1) 1-2 times/month</td>\n",
+=======
+       "      <td>(0) Never</td>\n",
+       "      <td>(0) Never</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(4) Every day</td>\n",
+       "      <td>(2) About 1 time/week</td>\n",
+       "      <td>(2) About 1 time/week</td>\n",
+       "      <td>(3) 2-3 times/week</td>\n",
+       "      <td>(3) 2-3 times/week</td>\n",
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
        "      <td>...</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -259,6 +331,7 @@
        "      <td>0</td>\n",
        "    </tr>\n",
        "    <tr>\n",
+<<<<<<< HEAD
        "      <th>1</th>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
@@ -270,6 +343,19 @@
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
+=======
+       "      <th>2</th>\n",
+       "      <td>(1) 1-2 times/month</td>\n",
+       "      <td>(1) 1-2 times/month</td>\n",
+       "      <td>(2) About 1 time/week</td>\n",
+       "      <td>(1) 1-2 times/month</td>\n",
+       "      <td>(0) Never</td>\n",
+       "      <td>(1) 1-2 times/month</td>\n",
+       "      <td>(1) 1-2 times/month</td>\n",
+       "      <td>(1) 1-2 times/month</td>\n",
+       "      <td>(3) 2-3 times/week</td>\n",
+       "      <td>(4) Every day</td>\n",
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
        "      <td>...</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -288,6 +374,7 @@
        "</div>"
       ],
       "text/plain": [
+<<<<<<< HEAD
        "       DN1W2               DN2W2                DN3W2      DN4W2  \\\n",
        "0  (0) Never  (3) 2-3 times/week  (1) 1-2 times/month  (0) Never   \n",
        "1        NaN                 NaN                  NaN        NaN   \n",
@@ -303,11 +390,36 @@
        "  DE50 DE51 DE98  \n",
        "0    0    0    0  \n",
        "1    0    0    0  \n",
+=======
+       "                 DN1W2                DN2W2                  DN3W2  \\\n",
+       "0            (0) Never            (0) Never              (0) Never   \n",
+       "1        (4) Every day        (4) Every day          (4) Every day   \n",
+       "2  (1) 1-2 times/month  (1) 1-2 times/month  (2) About 1 time/week   \n",
+       "\n",
+       "                 DN4W2                DN5W2                DN6W2  \\\n",
+       "0  (1) 1-2 times/month  (1) 1-2 times/month            (0) Never   \n",
+       "1        (4) Every day        (4) Every day        (4) Every day   \n",
+       "2  (1) 1-2 times/month            (0) Never  (1) 1-2 times/month   \n",
+       "\n",
+       "                   DN7W2                  DN8W2               DN9W2  \\\n",
+       "0              (0) Never              (0) Never       (4) Every day   \n",
+       "1  (2) About 1 time/week  (2) About 1 time/week  (3) 2-3 times/week   \n",
+       "2    (1) 1-2 times/month    (1) 1-2 times/month  (3) 2-3 times/week   \n",
+       "\n",
+       "               DN10W2  ... DE43 DE44 DE45 DE46 DE47 DE48 DE49 DE50 DE51 DE98  \n",
+       "0       (4) Every day  ...    0    0    1    0    0    0    0    0    0    0  \n",
+       "1  (3) 2-3 times/week  ...    0    0    0    0    0    0    0    0    0    0  \n",
+       "2       (4) Every day  ...    0    0    0    0    0    0    0    0    0    0  \n",
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
        "\n",
        "[2 rows x 129 columns]"
       ]
      },
+<<<<<<< HEAD
      "execution_count": 8,
+=======
+     "execution_count": 9,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -321,12 +433,17 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 9,
+=======
+   "execution_count": 10,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
    "id": "bb7a2046-e8ed-43bd-9b6b-c55340de93ac",
    "metadata": {},
    "outputs": [
     {
      "data": {
+<<<<<<< HEAD
       "text/plain": [
        "PNCL4W2_DUMMY1     0.427676\n",
        "PNCL5W2_DUMMY1     0.427676\n",
@@ -342,6 +459,158 @@
       ]
      },
      "execution_count": 9,
+=======
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>c1_DE2</th>\n",
+       "      <th>c25_DE26</th>\n",
+       "      <th>c30_DE31</th>\n",
+       "      <th>c31_DE32</th>\n",
+       "      <th>c33_DE34</th>\n",
+       "      <th>c40_DE41</th>\n",
+       "      <th>c44_DE45</th>\n",
+       "      <th>c48_DE49</th>\n",
+       "      <th>c52_DN1W2_DUMMY1</th>\n",
+       "      <th>c53_DN1W2_DUMMY2</th>\n",
+       "      <th>...</th>\n",
+       "      <th>c212_TOMELNW2_DUMMY1</th>\n",
+       "      <th>c213_TOMERGW2_DUMMY1</th>\n",
+       "      <th>c214_TOMERBW2_DUMMY1</th>\n",
+       "      <th>c215_TOMEMFW2_DUMMY1</th>\n",
+       "      <th>c216_TOMEPMW2_DUMMY1</th>\n",
+       "      <th>c217_TOMETHPW2_DUMMY1</th>\n",
+       "      <th>c218_TOMEREW2_DUMMY1</th>\n",
+       "      <th>c219_TOMESGW2_DUMMY1</th>\n",
+       "      <th>c220_TOMESUW2_DUMMY1</th>\n",
+       "      <th>c221_TOMEHDW2_DUMMY1</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>...</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>3 rows × 175 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   c1_DE2  c25_DE26  c30_DE31  c31_DE32  c33_DE34  c40_DE41  c44_DE45  \\\n",
+       "0       0         0         0         0         0         0         1   \n",
+       "1       0         0         0         0         0         0         0   \n",
+       "2       0         0         0         0         0         0         0   \n",
+       "\n",
+       "   c48_DE49  c52_DN1W2_DUMMY1  c53_DN1W2_DUMMY2  ...  c212_TOMELNW2_DUMMY1  \\\n",
+       "0         0                 0                 0  ...                     0   \n",
+       "1         0                 0                 0  ...                     0   \n",
+       "2         0                 1                 0  ...                     1   \n",
+       "\n",
+       "   c213_TOMERGW2_DUMMY1  c214_TOMERBW2_DUMMY1  c215_TOMEMFW2_DUMMY1  \\\n",
+       "0                     1                     0                     0   \n",
+       "1                     1                     1                     1   \n",
+       "2                     0                     0                     0   \n",
+       "\n",
+       "   c216_TOMEPMW2_DUMMY1  c217_TOMETHPW2_DUMMY1  c218_TOMEREW2_DUMMY1  \\\n",
+       "0                     0                      0                     0   \n",
+       "1                     1                      0                     0   \n",
+       "2                     0                      0                     0   \n",
+       "\n",
+       "   c219_TOMESGW2_DUMMY1  c220_TOMESUW2_DUMMY1  c221_TOMEHDW2_DUMMY1  \n",
+       "0                     0                     1                     1  \n",
+       "1                     0                     1                     0  \n",
+       "2                     0                     1                     1  \n",
+       "\n",
+       "[3 rows x 175 columns]"
+      ]
+     },
+     "execution_count": 10,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -366,7 +635,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 10,
+=======
+   "execution_count": 11,
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
    "id": "424da3c0-fba6-47cd-be0b-23b36dfcbd1b",
    "metadata": {},
    "outputs": [],
@@ -381,6 +654,7 @@
    "metadata": {},
    "outputs": [
     {
+<<<<<<< HEAD
      "ename": "AttributeError",
      "evalue": "'list' object has no attribute 'head'",
      "output_type": "error",
@@ -390,6 +664,16 @@
       "Input \u001b[0;32mIn [11]\u001b[0m, in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     54\u001b[0m     response_imputed_df \u001b[38;5;241m=\u001b[39m fit_mice(r_dummy_df, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mDN1W2_DUMMY1\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m     55\u001b[0m     \u001b[38;5;66;03m#r_dummy_df.apply(lambda x: fit_mice(r_dummy_df, x.name))\u001b[39;00m\n\u001b[0;32m---> 56\u001b[0m \u001b[43mresponse_imputed_df\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mhead\u001b[49m()\n",
       "\u001b[0;31mAttributeError\u001b[0m: 'list' object has no attribute 'head'"
      ]
+=======
+     "data": {
+      "text/plain": [
+       "<statsmodels.imputation.mice.MICEData at 0x7f8965a4d0a0>"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
     }
    ],
    "source": [
@@ -451,8 +735,13 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 17,
    "id": "e26bfc4a-a07b-4477-bb4b-7ddf93d5f465",
+=======
+   "execution_count": 12,
+   "id": "d836be6b-87a3-4ea9-953a-43a519148f97",
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
    "metadata": {},
    "outputs": [],
    "source": [
@@ -462,6 +751,7 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 19,
    "id": "1035a729-2906-45d3-9e1d-df7a4635c904",
    "metadata": {},
@@ -486,6 +776,91 @@
      "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
+=======
+   "execution_count": 13,
+   "id": "f8811746-6b73-4826-888c-1500abc57d9f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 8\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "Optimization terminated successfully.\n",
+      "         Current function value: 0.260678\n",
+      "         Iterations 1\n",
+      "[-3.74963033e+00  1.82035441e-01 -1.24392151e-01 -2.42208713e-01\n",
+      " -3.77083385e-01  1.08152102e-02  7.15752602e-01  1.61893213e-01\n",
+      " -2.39815095e-01  6.72966720e-01  4.72757078e-01  1.49412973e+00\n",
+      " -2.23801218e-01 -6.36244874e-01 -9.23973994e-01 -1.36712968e+00\n",
+      " -1.64800494e+00  7.71558174e-01  1.40611866e+00  1.51854648e+00\n",
+      "  1.23397626e-01 -5.64940626e-01 -9.48655351e-01  2.83693876e-01\n",
+      " -3.14862967e-04 -2.86747616e-01 -3.63660854e-01  3.74133858e-01\n",
+      "  1.08818326e+00 -1.09203190e+00  5.58975950e-01 -3.12374840e-01\n",
+      "  5.24285804e-01 -7.51456033e-04 -4.31153751e-01 -1.81432965e-01\n",
+      "  1.20469022e-01  1.25204213e+00  1.63548658e-01  8.08382274e-02\n",
+      " -1.88651510e-01 -1.17009783e-01 -4.54572615e-01  1.07597760e-01\n",
+      "  9.44949687e-02 -2.83027398e-01 -1.75244042e-01 -1.91415643e-01\n",
+      " -1.08114627e+00  3.08564962e-01 -7.38909669e-01  1.85748411e-01\n",
+      " -2.81264156e-01 -3.39859468e-01 -7.88149150e-01 -6.18949558e-01\n",
+      " -3.95059735e-01  9.47808661e-02 -8.40202347e-01 -3.68458515e-01\n",
+      "  8.04441447e-01  3.51196746e-01 -5.51113473e-01 -5.21225090e-02\n",
+      "  7.00575965e-01 -3.15234693e-01 -7.18375558e-01  3.50192137e-01\n",
+      "  2.44743668e-01  2.20844318e-01  2.22286980e-01  3.31442583e-01\n",
+      "  8.53329896e-01 -7.30961259e-01  6.32383175e-01  1.80275770e+00\n",
+      "  1.02246588e+00  1.53393630e+00  2.28693603e+00 -5.30608369e-01\n",
+      " -1.09385982e+00 -1.14846452e+00 -1.31870125e+00 -1.54738861e+00\n",
+      " -1.46085673e+00 -1.61901186e+00 -1.75191824e+00 -1.68383598e+00\n",
+      " -2.32753011e+00  8.84292801e-01  1.12115856e-01 -2.84018390e-01\n",
+      "  9.46585062e-02  4.83461287e-01  4.32440767e-01  8.94404009e-01\n",
+      " -1.04103437e-01  8.86987501e-01  7.44707782e-01  5.78500956e-02\n",
+      "  2.03107946e-01 -3.56181488e-01  3.37509951e-01 -3.38664599e-01\n",
+      "  9.74263892e-01  8.31226317e-01  1.34393403e+00  3.98357347e-01\n",
+      "  1.23225734e-02  2.77432188e-01  6.59562126e-01 -1.49235274e-01\n",
+      " -8.23230181e-01 -7.50262555e-01 -6.29038786e-01 -1.21100151e+00\n",
+      " -1.22230235e+00  7.04372460e-01  1.26282147e+00  9.11869267e-01\n",
+      "  1.21844225e+00  1.49591235e+00  2.76512441e-01 -3.33919307e-01\n",
+      "  3.22730755e-02 -3.37337854e-01  6.74972431e-01  6.47420773e-01\n",
+      " -2.02779173e-01 -7.70352925e-01 -5.09074063e-01 -1.01597727e+00\n",
+      " -6.91277275e-01 -2.56210584e-01  1.06227693e-01 -4.35561970e-01\n",
+      "  2.07405564e+00  1.06128438e-02 -4.88672821e-03  5.21597602e-01\n",
+      " -4.72816978e-01 -5.12223692e-01  6.03106154e-01 -1.10968775e-01\n",
+      "  6.56390482e-02  2.62029404e+00 -7.48894635e-01  4.80438771e-01\n",
+      " -4.60820391e-01  8.29896565e-01  7.55916842e-01  2.04917155e-01\n",
+      " -2.60838136e-01  3.27607841e-01  3.59425609e-01  8.82913011e-01\n",
+      " -3.63377231e-01  2.82090164e-01  4.65746335e-02  8.59287931e-02\n",
+      "  3.59831072e-01 -1.06752515e+00 -8.27602636e-02  5.02363760e-01\n",
+      "  3.22905213e-02  3.37871976e-01  5.60851178e-01  2.00483731e+00\n",
+      " -1.03258681e-01 -1.03547711e-01  8.02184100e-01 -2.00646190e-01\n",
+      "  1.06445798e+00  2.51044265e-01  1.38960900e-01]\n"
+     ]
+>>>>>>> 6e7742e9a09ac9775a21ce1f586bd4834a49400e
     }
    ],
    "source": [
