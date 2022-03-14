@@ -1,0 +1,119 @@
+---
+title: 'Network Construction - CSCI Project'
+author: "Tyler Maule"
+date: "March 12th, 2022"
+output:
+  pdf_document: default
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{setspace}
+- \doublespacing
+---
+
+
+```{r message= FALSE, warning= FALSE}
+#import packages needed for this application
+library(igraph)
+library(tidyverse)
+library(multilayer.ergm)
+library(multinet)
+library(muxViz)
+library(intergraph)
+library(reshape)
+library(rio)
+```
+
+
+```{r}
+#load and import data from Paluck et. al. 
+#(accessible at https://www.icpsr.umich.edu/web/civicleads/studies/37070/publications)
+school_df<- import("data/anticonflict_study_dataframe.csv")
+
+set.seed(441)
+
+#select school ID no. 15 -- needs to be updated or wrapped s.t. network statistics are calculated for each school in the dataset -- I guess we can skip over untreated schools, since they won't have any treated students.
+school_1 <- school_df %>% filter((SCHID == 15))
+```
+
+```{r}
+#create a list of vertices (nodes) from the list of students at school 15,
+#along with key characteristics of each student
+school_1.v <- school_1 %>% select(ID, TREAT, GENC)
+
+#minor data processing -- convert the treatment variable into a binary indicator
+school_1.v$TREAT2 <- ifelse(school_1.v$TREAT == "(1) Treatment", 1, 0)
+school_1.v$ID <- as.numeric(school_1.v$ID)
+
+school_1.v[1:3,]
+```
+
+```{r}
+spendtime_noms <- c("ID","ST1", "ST2", "ST3", "ST4", "ST5", "ST6", "ST7", "ST8", "ST9", "ST10")
+conflict_noms <- c("ID","CN1", "CN2", "CN3", "CN4", "CN5")
+bestfriend_noms <- c("ID","BF1", "BF2")
+
+get_layer_edges <- function(layer_nominations){
+  #create a dataframe with two columns, where each row will represent an edge:
+  #the first capturing each student ID, and the second capturing IDs of students
+  #who were identified as friends OR best friends, OR peers with whom the 
+  #first student has conflict
+  school_1.e <- school_1[,layer_nominations]
+  school_1.e <- melt(school_1.e, id.vars="ID", var="NOM_TYPE")
+  colnames(school_1.e) <- c("ID","NOM_TYPE","NEIGHBOR")
+  school_1.e <- school_1.e[,c("ID","NEIGHBOR")]
+  
+  school_1.e$ID <- as.numeric(school_1.e$ID)
+  school_1.e$NEIGHBOR <- as.numeric(school_1.e$NEIGHBOR)
+  
+  #ensure that there are no duplicate edges or edges not in the vertex list
+  school_1.e <- school_1.e[school_1.e$NEIGHBOR %in% school_1.v$ID,]
+
+  school_1.e
+}
+
+get_layer_igraph <- function(layer_edgelist){
+  #use the igraph package to create a graph object based on the node dataframe
+  #and edge dataframe; simplify the graph to remove any remaining multi-edges and loops
+  school_1.g = graph_from_data_frame(layer_edgelist, directed = TRUE, vertices = school_1.v)
+  school_1.g = igraph::simplify(school_1.g)
+  
+  school_1.g
+}
+
+visualize_layer_igraph <- function(layer_igraph, layout_pref){
+  #adjust visualization settings to color directly treated nodes in red,
+  #and the control nodes in blue
+  V(layer_igraph)$color <- ifelse(V(layer_igraph)$TREAT2 == 1, "maroon", "light blue")
+  igraph_options(vertex.size = 4, vertex.label = NA, edge.arrow.size = 0.25, edge.width = 0.5)
+
+  #plot by letting igraph choose a "nice" layout based on the graph structure
+  par(mar=c(0,0,0,0))
+  plot(layer_igraph, layout = layout_pref)
+}
+```
+
+```{r}
+#create and plot monoplex "spendtime" network (layer I)
+spendtime_edges <- get_layer_edges(spendtime_noms)
+spendtime_layer <- get_layer_igraph(spendtime_edges)
+
+school_layout <- layout.fruchterman.reingold(spendtime_layer)
+visualize_layer_igraph(spendtime_layer,layout_pref=school_layout)
+```
+
+```{r}
+#create and plot monoplex "conflict" network (layer II)
+conflict_edges <- get_layer_edges(conflict_noms)
+conflict_layer <- get_layer_igraph(conflict_edges)
+visualize_layer_igraph(conflict_layer,layout_pref=school_layout)
+```
+```{r}
+#create and plot monoplex "bestfriend" network (layer III)
+bestfriend_edges <- get_layer_edges(bestfriend_noms)
+bestfriend_layer <- get_layer_igraph(bestfriend_edges)
+visualize_layer_igraph(bestfriend_layer,layout_pref=school_layout)
+```
+
+```{r}
+(distances(spendtime_layer))
+```
