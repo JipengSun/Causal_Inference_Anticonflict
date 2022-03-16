@@ -6,7 +6,13 @@ The original dataset can be find at https://www.icpsr.umich.edu/web/civicleads/s
 
 ## School Level Causal Effect Estimation
 
+Run school_level_causal_inference_pipeline.ipynb will return the causal effect estimation between training assignment and anti-conflict score outcome of that school.
+
 ## Student Level Causal Effect Estimation
 
-## Social Network Effect Mining
+Run student_level_causal_inference_pipeline.ipynb will return the causal effect estimation between training attendance and anti-conflict score outcome of the student. The interference effect due to the student social network has already been considered in the estimation.
+
+## Social Network Interference Mining
+
+To understand how the 'network_effect' comes in the final dataset, please run the network_analysis.ipynb file to go through the process of building social network graphs for each school and use multiple minimum distance graph algorithm to find out the number of trained friends in every student's 1-jump and 2-jump network.
 
