@@ -14,5 +14,5 @@ Run student_level_causal_inference_pipeline.ipynb will return the causal effect 
 
 ## Social Network Interference Mining
 
-To understand how the 'network_effect' comes in the final dataset, please run the network_analysis.ipynb file to go through the process of building social network graphs for each school and use multiple minimum distance graph algorithm to find out the number of trained friends in every student's 1-jump and 2-jump network.
+To understand how the 'network_effect' comes in the final dataset, please run the pre-processing/network_analysis.ipynb file to go through the process of building social network graphs for each school and use multiple minimum distance graph algorithm to find out the number of trained friends in every student's 1-jump and 2-jump network.
 
